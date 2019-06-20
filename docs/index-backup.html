@@ -1,0 +1,128 @@
+---
+layout: default
+---
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <div class="well-sm">
+      <h3>All of <span style="color:blue">S</span>tatistical <span style="color:blue">L</span>earning</h3>
+      <p> by <span style="color:blue">S</span>ungbin <span style="color:blue">L</span>im </p>
+      <p>
+ 	      <a href="https://www.dropbox.com/s/huik76zchc9n5dl/CV_sungbin.pdf?dl=0" target="_blank"><img src="profile_0.png" width=170 height=170 border="0"></a>
+      </p>
+    </div>
+    
+    <div class="well-sm">
+      <h3>New Posts</h3>
+      <ul class="post-list">
+	      {% for post in site.posts limit:3 %}
+	      <li>
+	        <h4>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	        </h4>
+	        <p><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span></p>
+	        {{ post.excerpt }}
+          <hr/>          
+	      </li>
+	      {% endfor %}
+      </ul>
+    </div>
+
+<nav class="pagination" role="navigation">
+  <p>
+    {% if paginator.previous_page %}
+      {% if paginator.page == 2 %}
+      <a class="newer-posts" href="{% if site.baseurl %}{{ site.baseurl }}{% endif %}/">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      {% else %}
+      <a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.previous_page}}">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      {% endif %}
+    {% else %}
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+    </span>
+    {% endif %}
+    <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+    <a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.next_page}}">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    {% else %}
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+    </span>
+    {% endif %}
+  </p>
+</nav>
+
+  </div>
+  
+  <div class="col-sm-12 col-md-6">
+    <div class="well-sm">
+      <h3>1. Mathematical Principles of Statistical Learning</h3>
+      <ul>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0100"> 1. Kolmogorov Probability Axiom </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0200"> 2. Elementary Measure Theory </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0300"> 3. Convergence of Random Variables </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0400"> 4. Norm and Hilbert spaces</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0500"> 5. Models, Statistical Inference and Learning</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0600"> 6. The Bootstrap</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0700"> 7. Statistical Decision Theory</a></li>        
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0800"> 8. Linear and Nonlinear approximation</a></li>        
+        <li><a href="{{ site.baseurl }}/docs/mpsl/0900"> 9. Elements of Kernel method</a></li>        
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1000"> 10. Smoothing Methods</a></li>        
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1100"> 11. Simulation Methods</a></li>        
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1200"> 12. Regularization</a></li>        
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1300"> 13. Ridge and Lasso</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1400"> 14. Nonparametric Regression</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1500"> 15. Density Estimation</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1600"> 16. Nonparametric Inference</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1700"> 17. Wavelets and other Adaptive Methods</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1800"> 18. Bagging and Boosting</a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpsl/1900"> 19. CART and Random Forest</a></li>
+      </ul>
+    </div>
+    <div class="well-sm">
+      <h3>2. Nonparametric Bayesian</h3>
+      <ul>
+        <li><a href="{{ site.baseurl }}/docs/npb/0100">1. Terminology </a></li>
+        <li><a href="{{ site.baseurl }}/docs/npb/0200">2. Clustering and the Dirichlet Process </a></li>
+        <li><a href="{{ site.baseurl }}/docs/npb/0300">3. Latent features and the Indian buffet process </a></li>
+        <li><a href="{{ site.baseurl }}/docs/npb/0400">4. Regression and the Gaussian process </a></li>
+        <li><a href="{{ site.baseurl }}/docs/npb/0500">5. Models as bulding blocks </a></li>
+        <li><a href="{{ site.baseurl }}/docs/npb/0600">6. Exchangeability </a></li>
+        <li><a href="{{ site.baseurl }}/docs/npb/0700">7. Posterior distributions </a></li> 
+        <li><a href="{{ site.baseurl }}/docs/npb/0800">8. Random measures </a></li> 
+      </ul>
+    </div>
+    <div class="well-sm">
+      <h3>3. Miscellaneous Topics in Modern Probability (작업중)</h3>
+      <ul>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0100">1. Ito Formula and Stochastic Calculus </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0200">2. SDE Theory </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0300">3. Markov process </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0400">4. Feynman-Kac formula </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0500">5. Diffusion process </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0600">6. Linear and Nonlinear Filtering </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0700">7. Optimal Control </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mpt/0800">8. Hamilton-Jacobi-Bellman Equation </a></li>
+      </ul>
+    </div>    
+  </div>
+</div>
+
+
+
