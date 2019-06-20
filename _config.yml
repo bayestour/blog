@@ -2,10 +2,10 @@
 title: Bayesian tour
 
 email: "sunnybenlim@gmail.com"
-url: "https://sungbinlim.github.io/bayestour"
-github_url: "http://github.com/sungbinlim/bayestour"
+url: "https://bayestour.github.io/blog"
+github_url: "http://github.com/bayestour/blog"
 github_editurl: "/blob/gh-pages"
-github_profile: "http://github.com/sungbinlim"
+github_profile: "http://github.com/bayestour"
 baseurl: "/bayestour"
 
 exclude:
