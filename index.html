@@ -1,0 +1,178 @@
+---
+layout: default
+title: Bayesian tour
+---
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <div class="well-sm">
+      <h3>Bayesian Statistics & Learning</h3>
+      <p> by Joonsuk Park & Sungbin Lim</p>
+      <p>
+ 	      <a href="https://www.dropbox.com/s/huik76zchc9n5dl/CV_sungbin.pdf?dl=0" target="_blank"><img src="{{site.baseurl}}/profile_00.jpg" width=170 height=170 border="0"></a>
+      </p>
+    </div>
+  
+    <div class="well-sm">
+      <h3>New Posts</h3>
+      <ul class="post-list">
+	      {% for post in paginator.posts limit:4 %}
+	      <li>
+	        <h4>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	        </h4>
+	        <p><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span></p>
+	        {{ post.excerpt }}
+          <hr/>          
+	      </li>
+	      {% endfor %}
+     </ul>
+
+ <!-- Pagination links -->
+  {% if paginator.total_pages > 1 %}
+  <ul class="pagination clearfix">
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+      <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
+      {% else %}
+      <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
+      {% endif %}
+    {% else %}
+    <li><span class="disabled">Prev</span></li>
+    {% endif %}
+    {% if paginator.page == 1 %}
+    <li><span class="active">1</span></li>
+    {% else %}
+    <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">1</a></li>
+    {% endif %}
+  <!--
+    {% if paginator.page == 1 %}
+    <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">1</a></li>
+    {% else %}
+    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', paginator.page}}">{{paginator.page}}</a></li>
+    {% endif %}
+    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', paginator.total_pages}}">{{paginator.total_pages}}</a></li>
+  -->
+    {% for count in (2..paginator.total_pages) %}
+      {% if count == paginator.page %}
+      <li><span class="active">{{ count }}</span></li>
+      {% else %}
+      <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', count }}">{{ count }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+    <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
+    {% else %}
+    <li><span class="disabled">Next</span></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+
+
+
+<!--{% if paginator.total_pages > 1 %}
+<ul class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</ul>
+{% endif %}
+-->
+
+<!--        <nav class="pagination" role="navigation">
+  <p>
+    {% if paginator.previous_page %}
+      {% if paginator.page == 2 %}
+      <a class="newer-posts" href="{% if site.baseurl %}{{ site.baseurl }}{% endif %}/">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      {% else %}
+      <a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.previous_page}}">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      {% endif %}
+    {% else %}
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+    </span>
+    {% endif %}
+    <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+    <a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.next_page}}">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    {% else %}
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+    </span>
+    {% endif %}
+  </p>
+      </nav>
+
+-->
+
+</div>
+      
+
+  
+    
+</div>
+  
+  <div class="col-sm-12 col-md-6">
+    <div class="well-sm">
+      <h3><a href="{{ site.baseurl }}/docs/sml/0">1. Statistical Machine Learning</a></h3>
+      <ul>
+        <li><a href="{{ site.baseurl }}/docs/sml/0100"> 1. Mixture Models </a></li>
+        <li><a href="{{ site.baseurl }}/docs/sml/0200"> 2. Variational Methods </a></li>
+        <li><a href="{{ site.baseurl }}/docs/sml/0300"> 3. Nonparametric Bayesian </a></li>
+        <li><a href="{{ site.baseurl }}/docs/sml/0400"> 4. Causal Inference </a></li>
+        <li><a href="{{ site.baseurl }}/docs/sml/0500"> 5. 작성중.. </a></li>
+      </ul>
+    </div>
+    <div class="well-sm">
+      <h3><a href="{{ site.baseurl }}/docs/mt/0">2. Miscellaneous Topics</a></h3>
+      <ul>
+        <li><a href="{{ site.baseurl }}/docs/mt/0100">1. Normalizing Flows </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mt/0200">2. Graph Neural Network </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mt/0300">3. 3D Machine Learning </a></li>
+        <li><a href="{{ site.baseurl }}/docs/mt/0400">4. Active Learning </a></li>
+      </ul>
+    </div>    
+  </div>
+</div>
+
+
+
