@@ -1,0 +1,21 @@
+topnav:
+  - title: Contents
+    items:
+      - title: 1. Statistical Machine Learning
+        group: Bayesian Machine Learning
+        url: /docs/sml/0
+      - title: 2. Miscellaneous Topics
+        group: Miscellaneous Topics in Machine Learning
+        url: /docs/mt/0
+  - title: 1. Statistical ML
+    items:
+      - title: 1. Mixture Models
+        group: "Mixture Models"
+        url: /docs/sml/0101
+      - title: 2. Variational Methods
+        group: "Variational Methods"
+        url: /docs/sml/0201
+  - title: 2. Miscellaneous
+    group: "Miscellaneous Topics in Machine Learning"
+    url: /docs/mt/0
+

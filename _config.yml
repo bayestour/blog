@@ -1,0 +1,27 @@
+# Site settings
+title: Bayesian tour
+
+email: "sunnybenlim@gmail.com"
+url: "https://sungbinlim.github.io/bayestour"
+github_url: "http://github.com/sungbinlim/bayestour"
+github_editurl: "/blob/gh-pages"
+github_profile: "http://github.com/sungbinlim"
+baseurl: "/bayestour"
+
+exclude:
+  - README.md
+  - _site
+  
+highlighter: rouge
+markdown: kramdown
+plugins:
+  - jemoji
+  - jekyll-paginate
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+paginate: 4
+paginate_path: /page:num
+
