@@ -2,11 +2,11 @@
 title: Bayesian tour
 
 email: "sunnybenlim@gmail.com"
-url: "https://bayestour.github.io/blog"
+url: "https://bayestour.github.io/blog/"
 github_url: "http://github.com/bayestour/blog"
 github_editurl: "/blob/gh-pages"
 github_profile: "http://github.com/bayestour"
-baseurl: "/bayestour"
+baseurl: "/blog"
 
 exclude:
   - README.md
