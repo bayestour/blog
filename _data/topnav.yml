@@ -13,29 +13,30 @@ topnav:
       - title: 4. General Research Method
         group: "General Research Method"
         url: /docs/grm/0
-  - title: 1. Applied Bayesian Statistics
-    items:
-      - title: 1.
-        group: ""
-        url: /docs/abs/0101
-      - title: 2.
-        group: ""
-        url: /docs/abs/0201
-  - title: 2. Advanced Statistical Learning
-    items:
-      - title: 1. Mixture Models
-        group: "Mixture Models"
-        url: /docs/asl/0101
-      - title: 2. Variational Methods
-        group: "Variational Methods"
-        url: /docs/asl/0201
-  - title: 3. Causal Inference & Learning
-    items:
-      - title: 1. Causal Modeling
-        group: "Causal Modeling"
-        url: /docs/cml/0101
-  - title: 4. General Research Method
-    items:
-      - title: 1.
-        group: ""
-        url: /docs/grm/0101
+        
+  # - title: 1. Applied Bayesian Statistics
+  #   items:
+  #     - title: 1.
+  #       group: ""
+  #       url: /docs/abs/0101
+  #     - title: 2.
+  #       group: ""
+  #       url: /docs/abs/0201
+  # - title: 2. Advanced Statistical Learning
+  #   items:
+  #     - title: 1. Mixture Models
+  #       group: "Mixture Models"
+  #       url: /docs/asl/0101
+  #     - title: 2. Variational Methods
+  #       group: "Variational Methods"
+  #       url: /docs/asl/0201
+  # - title: 3. Causal Inference & Learning
+  #   items:
+  #     - title: 1. Causal Modeling
+  #       group: "Causal Modeling"
+  #       url: /docs/cml/0101
+  # - title: 4. General Research Method
+  #   items:
+  #     - title: 1.
+  #       group: ""
+  #       url: /docs/grm/0101
