@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "EM 알고리즘 이해 및 구현하기"
+group: "Bayesian Statistics"
 author: 박준석
 ---
 
