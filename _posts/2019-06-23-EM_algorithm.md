@@ -18,59 +18,37 @@ author: 박준석
 
 각각의 경우 우리는 동전이 어느 면이 나왔는지는 모르지만, 10번 중 몇 번 성공했는지는 알고 있습니다. 이 정보를 유용하게 사용할 수 있지 않을까요? 다시 말해 5, 9, 8, 4, 7 이라는 숫자를 보면 “딱 봐도” 9,8,7과 5,4는 왠지 두 그룹으로 묶을 수 있을 것 같습니다. 다시 말해 우리는 이 숫자들이 \\( p_{1} \\)과 \\( p_{2} \\) 중 어느 쪽에서 생성되었을지 “감을 잡을 수” 있다는 말입니다. 그런데 이 “감”은 부정확하므로, 대신 각각의 숫자가 어떤 \\( p_{1} \\)과 \\( p_{2} \\)에서 생성되었는지 상대적인 확률을 구해 봅시다. 예를 들어 \\( p_{1} \\)=0.6, \\( p_{2} \\)=0.5라고 해 봅시다. 그러면 dbinom(X, 10, 0.6)과 dbinom(X, 10, 0.5)의 비율을 각각의 숫자에 대해 구할 수 있습니다. 그러면 결과는 다음과 같습니다:
 
-```{r}
-
+```r
 n <- 10
 y <- c(5, 9, 8, 4, 7)
 p <- c(0.6, 0.5)
 weights <- dbinom(y, n, p[1]) / (dbinom(y, n, p[1]) + dbinom(y, n, p[2]))
 weights
-
 ```
 
 여기서 weights는 \\( p_{1} \\) 과 \\( p_{2} \\)  하에서 자료가 생성되었을 확률의 상대적 비율을 나타냅니다. 이제 이것을 이용해서 각 자료의 확률을 \\( p_{1} \\)과 \\( p_{2} \\) 하에서의 확률 값의 가중평균으로 구할 수 있습니다. 이 확률들을 다 곱하면 가능도가 되겠죠? 그런데 여기서는 그냥 가능도 대신 로그-가능도를 씁니다. 다음 함수는 이런 방식으로 계산된 로그-가능도를 계산해주는 함수입니다.
 
-```{r}
+```r
 E <- function(p, weights) -sum(weights*dbinom(y, n, p[1], log=T) +
   (1-weights)*dbinom(y, n, p[2], log=T))
 ```
 
 마이너스를 붙인 이유는 이제 이 함수를 최적화할 거라서입니다. (원래 최대가능도법의 목적은 가능도함수를 최대화하는 것임을 상기합시다.) 이제 이 E라는 함수를 최적화하는 함수를 하나 따로 짭니다:
 
-```{r}
+```r
 M <- function(p, weights) optim(p, E, weights=weights, lower=c(1e-10, 1e-10),
   upper=c(1-(1e-10), 1-(1e-10)), method='L-BFGS-B')$par
 ```
 
-기술적 디테일이 좀 있지만 무시하고, <img src="https://latex.codecogs.com/gif.latex?p" />는 최적화를 위한 일종의 시작 값이며, 이 함수는 주어진 가중치를 사용하여 만들어진 새로운 가능도함수를 최대화한다는 것만 기억합시다. 시작 값으로 <img src="https://latex.codecogs.com/gif.latex?p_1=0.6" />,  <img src="https://latex.codecogs.com/gif.latex?p_2=0.5" />를 준 후 최적화하면 다음과 같은 결과를 얻습니다 (참고문헌과 같은 결과):
+기술적 디테일이 좀 있지만 무시하고, \\(p\\)는 최적화를 위한 일종의 시작 값이며, 이 함수는 주어진 가중치를 사용하여 만들어진 새로운 가능도함수를 최대화한다는 것만 기억합시다. 시작 값으로 \\(p_{1}=0.6\\),  \\(p_{2}=0.5\\)를 준 후 최적화하면 다음과 같은 결과를 얻습니다 (참고문헌과 같은 결과):
 
-```{r}
+```r
 M(c(0.6, 0.5), weights)
 ```
 
 여기까지가 한 바퀴입니다. EM 알고리즘은 이렇게 로그-가능도함수를 결측치에 대한 가중평균으로 구하는 “기댓값” 스텝 (E-step), 그리고 그렇게 가중평균이 된 로그-가능도함수를 최대화하는 모수치의 값을 찾는 “최대화” 스텝 (M-step) 으로 이루어져 있습니다. 이 둘을 더 이상 로그가능도함수의 값이 유의미하게 변화하지 않을 때까지 반복하면 됩니다. [2]
 
 이것을 실제로 구현하면 다음과 같습니다:
-
-```{r}
-iter <- 0
-dif <- 1000
-eps <- 1e-10
-
-while(dif > eps){
-
-  weights <- dbinom(y, n, p[1]) / (dbinom(y, n, p[1]) + dbinom(y, n, p[2]))
-  temp <- M(p, weights)
-  weights_temp <- dbinom(y, n, temp[1]) / (dbinom(y, n, p[1]) + dbinom(y, n, temp[2]))
-  dif <- abs(E(p, weights)-E(temp, weights_temp))
-  p <- temp
-  iter <- iter + 1
-}
-
-p
-
-iter
-```
 
 <script src="https://gist.github.com/sungbinlim/2bf9c3e3dae2d08fe56dc6b9f404ec32.js"></script>
 
@@ -89,13 +67,11 @@ iter
 
 참고문헌은 최대화 과정을 생략하고 표본평균으을 구하는 것으로 바꾸었는데, 사실 이항분포의 경우 표본평균은 곧 최대가능도 추정치기 때문에 상관이 없습니다. 하지만 이 예제에서는 구체적으로 로그-가능도 함수를 최대화하는 것을 보여줌으로써 보다 일반적인 경우에 대해 다루려 했습니다. E-M 알고리즘의 이해에 도움이 되셨기를 바랍니다. 참고로 E-M 알고리즘은 mixture distribution의 추정, 결측치 대체 등 다양한 문제에서 유용하게 사용되고 있습니다.
 
-전체 R 코드: https://github.com/JoonsukPark/examples/blob/master/EM_binomial.R
+전체 R 코드: [GitHub](https://github.com/JoonsukPark/examples/blob/master/EM_binomial.R)
 
 참고문헌
 
-Do, C. B., & Batzoglou, S. (2008). What is the expectation maximization algorithm?. Nature biotechnology, 26(8), 897.
-
-https://www.nature.com/articles/nbt1406
+Do, C. B., & Batzoglou, S. (2008). What is the expectation maximization algorithm?. Nature biotechnology, 26(8), 897. [논문링크](https://www.nature.com/articles/nbt1406)
 
 [1] 모수치의 추정 문제에도 적용할 수 있는데, 이것은 모수치를 결측치로 간주하는 트릭을 쓸 수 있기 때문입니다.
 
