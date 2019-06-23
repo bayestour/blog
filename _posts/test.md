@@ -2,20 +2,12 @@
 title: "test"
 author: "Joonsuk Park"
 date: "June 23, 2019"
-output: post
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## R Markdown
-
----
-layout: post
-title: "EM 알고리즘 이해 및 구현하기"
-author: 박준석
----
 
 요즘들어 구현 시리즈를 많이 쓰는 것 같은데 나중에 한 번 따로 엮을까도 싶군요. 아무튼 오늘 소개할 내용은 EM 알고리즘입니다. EM 알고리즘…통계를 좀 깊게 들어간다 싶으면 반드시 등장하는 중요한 내용이지만 이해하기는 꽤 어렵습니다. 그래서 오늘은 이것을 설명하고 간단한 사례를 구현하는 것까지 한 번 해 보도록 하겠습니다.
 
@@ -31,7 +23,7 @@ author: 박준석
 
 각각의 경우 우리는 동전이 어느 면이 나왔는지는 모르지만, 10번 중 몇 번 성공했는지는 알고 있습니다. 이 정보를 유용하게 사용할 수 있지 않을까요? 다시 말해 5, 9, 8, 4, 7 이라는 숫자를 보면 “딱 봐도” 9,8,7과 5,4는 왠지 두 그룹으로 묶을 수 있을 것 같습니다. 다시 말해 우리는 이 숫자들이 <img src="https://latex.codecogs.com/gif.latex?p_1" />과 <img src="https://latex.codecogs.com/gif.latex?p_2" /> 중 어느 쪽에서 생성되었을지 “감을 잡을 수” 있다는 말입니다. 그런데 이 “감”은 부정확하므로, 대신 각각의 숫자가 어떤 <img src="https://latex.codecogs.com/gif.latex?p_1" />과 <img src="https://latex.codecogs.com/gif.latex?p_2" />에서 생성되었는지 상대적인 확률을 구해 봅시다. 예를 들어 <img src="https://latex.codecogs.com/gif.latex?p_1" />=0.6, <img src="https://latex.codecogs.com/gif.latex?p_2" />=0.5라고 해 봅시다. 그러면 dbinom(X, 10, 0.6)과 dbinom(X, 10, 0.5)의 비율을 각각의 숫자에 대해 구할 수 있습니다. 그러면 결과는 다음과 같습니다:
 
-```{r}
+```{r, echo=TRUE}
 
 n <- 10
 y <- c(5, 9, 8, 4, 7)
