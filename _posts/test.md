@@ -2,7 +2,7 @@
 title: "test"
 author: "Joonsuk Park"
 date: "June 23, 2019"
-output: html_document
+output: github::r
 ---
 
 ```{r setup, include=FALSE}
