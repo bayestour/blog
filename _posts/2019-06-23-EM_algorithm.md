@@ -37,7 +37,8 @@ weights
 여기서 weights는 <img src="https://latex.codecogs.com/gif.latex?p_1" /> 과 <img src="https://latex.codecogs.com/gif.latex?p_2" />  하에서 자료가 생성되었을 확률의 상대적 비율을 나타냅니다. 이제 이것을 이용해서 각 자료의 확률을 <img src="https://latex.codecogs.com/gif.latex?p_1" />과 <img src="https://latex.codecogs.com/gif.latex?p_2" /> 하에서의 확률 값의 가중평균으로 구할 수 있습니다. 이 확률들을 다 곱하면 가능도가 되겠죠? 그런데 여기서는 그냥 가능도 대신 로그-가능도를 씁니다. 다음 함수는 이런 방식으로 계산된 로그-가능도를 계산해주는 함수입니다.
 
 ```{r}
-E <- function(p, weights) -sum(weights*dbinom(y, n, p[1], log=T) + (1-weights)*dbinom(y, n, p[2], log=T))
+E <- function(p, weights) -sum(weights*dbinom(y, n, p[1], log=T) +
+  (1-weights)*dbinom(y, n, p[2], log=T))
 ```
 
 마이너스를 붙인 이유는 이제 이 함수를 최적화할 거라서입니다. (원래 최대가능도법의 목적은 가능도함수를 최대화하는 것임을 상기합시다.) 이제 이 E라는 함수를 최적화하는 함수를 하나 따로 짭니다:
