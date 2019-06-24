@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bayesian LASSO 구현하기"
-group: "Bayesian Statistics"
+group: "Applied Bayesian Statistics"
 author: 박준석
 ---
 
