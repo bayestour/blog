@@ -4,15 +4,9 @@ topnav:
       - title: 1. Applied Bayesian Statistics
         group: "Applied Bayesian Statistics"
         url: /docs/abs/0
-      - title: 2. Advanced Statistical Learning
-        group: "Advanced Statistical Learning"
-        url: /docs/asl/0
-      - title: 3. Causal Inference & Learning
+      - title: 2. Causal Inference & Learning
         group: "Causal Inference & Learning"
-        url: /docs/cml/0
-      - title: 4. General Research Method
-        group: "General Research Method"
-        url: /docs/grm/0
+        url: /docs/bc/0
         
   # - title: 1. Applied Bayesian Statistics
   #   items:
