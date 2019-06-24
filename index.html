@@ -72,27 +72,14 @@ title: Bayesian tour
       </ul>
     </div>
     <div class="well-sm">
-      <h3><a href="{{ site.baseurl }}/docs/asl/0">2. Advanced Statistical Learning</a></h3>
+      <h3><a href="{{ site.baseurl }}/docs/cml/0">2. Bayesian Causal Inference</a></h3>
       <ul>
-        <li><a href="{{ site.baseurl }}/docs/asl/0100"> 1. Variational Inference </a></li>
-        <li><a href="{{ site.baseurl }}/docs/asl/0200"> 2. 작성중.. </a></li>
+        <li><a href="{{ site.baseurl }}/docs/bc/0100"> 1. Causal Modeling </a></li>
+        <li><a href="{{ site.baseurl }}/docs/bc/0200"> 2. Assumptions </a></li>
       </ul>
     </div>
     <div class="well-sm">
-      <h3><a href="{{ site.baseurl }}/docs/cml/0">3. Causal Inference & Learning</a></h3>
-      <ul>
-        <li><a href="{{ site.baseurl }}/docs/cml/0100"> 1. Causal Modeling </a></li>
-        <li><a href="{{ site.baseurl }}/docs/cml/0200"> 2. Assumptions </a></li>
-      </ul>
-    </div>
-    <div class="well-sm">
-      <h3><a href="{{ site.baseurl }}/docs/cml/0">4. General Research Method</a></h3>
-      <ul>
-        <li><a href="{{ site.baseurl }}/_posts/2019-06-23-EM_algorithm"> EM 알고리즘 이해 및 구현하기</a></li>
-      </ul>
-    </div>
-    <div class="well-sm">
-      <h3><a href="{{ site.baseurl }}/docs/cml/0">5. Test</a></h3>
+      <h3>Posts on General Statistics & Learning</h3>
       <ul>
         {% for post in paginator.posts %}
         <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
