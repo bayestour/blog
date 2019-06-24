@@ -182,8 +182,11 @@ title: Bayesian tour
       </ul>
     </div>
     <div class="well-sm">
-      {% for post in paginator.posts %}
-      <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-      {% endfor %}
+      <h3><a href="{{ site.baseurl }}/docs/cml/0">5. Test</a></h3>
+      <ul>
+        {% for post in paginator.posts %}
+        <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
 </div>
