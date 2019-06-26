@@ -6,7 +6,7 @@ comments: true
   <div class="col-sm-3">
     <h2>{{ page.group }}</h2>
     <ul class="nav nav-pills nav-stacked">
-      {% for p in paginator.posts %}
+      {% for p in site.posts %}
       {% if p.group == page.group %}
       <li class="{% if p.title == page.title %}active{% endif %} {% if p.subgroup == true %}sub{% endif %}" >
         <a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
