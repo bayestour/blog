@@ -1,13 +1,10 @@
 topnav:
   - title: Contents
     items:
-      - title: 1. Applied Bayesian Statistics
-        group: "Applied Bayesian Statistics"
-        url: /docs/abs/0
-      - title: 2. Causal Inference & Learning
+      - title: Causal Inference & Learning
         group: "Causal Inference & Learning"
         url: /docs/bc/0
-        
+
   # - title: 1. Applied Bayesian Statistics
   #   items:
   #     - title: 1.
