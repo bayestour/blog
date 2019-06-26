@@ -1,7 +1,7 @@
 ---
 layout: post-sidenav
 title: "Dirichlet Process"
-group: "Nonparametric Bayesian"
+group: "Bayesian Statistics"
 author: 임성빈
 ---
 
