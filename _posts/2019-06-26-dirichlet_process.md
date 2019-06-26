@@ -39,18 +39,23 @@ $$
 
 ### Dirichlet Process
 
-이제 DP 를 저
+이제 Drichlet Process (DP) 를 정의하겠습니다. DP 의 정의를 이해하려면 [측도론(measure theory)](https://en.wikipedia.org/wiki/Measure_(mathematics))의 기본적인 용어들을 알아야 합니다.
 
-**[Definition]** \\( \alpha > 0 \\) 이고 \\( G \\) 가 \\( \Omega_{\phi} \\) 위에 정의된 확률측도일 때, 이산확률측도 \\( \Theta \\) 를 다음과 같이 정의하자:
+#### Definition
+\\( \alpha > 0 \\) 이고 \\( G \\) 가 \\( \Omega_{\phi} \\) 위에 정의된 확률측도일 때, 이산확률측도 \\( \Theta \\) 를 다음과 같이 정의하자:
+
 $$
 \Theta := \sum_{k} C_{k}\delta_{\Phi_{k}}
 $$
+
 이 때 이 \\( \Theta \\) 를 **Dirichlet Process (DP)** 라 부르고 \\( G \\) 를 **base measure**, \\( \alpha \\) 를 **concentration** 이라 한다. 여기서 \\( \delta \\) 는 Dirac 측도이고 \\(C_{k}\\), \\(\Phi_{k}\\) 는 다음과 같다:
+
 $$
 \begin{aligned}
 V_{1}, V_{2},\ldots \underset{\text{i.i.d}}{\sim} \text{Beta}(1,\alpha),\quad C_{k}=V_{k}\prod_{j=1}^{k-1}(1-V_{k})
 \end{aligned},\quad \Phi_{1},\Phi_{2},\ldots,\underset{\text{i.i.d}}{\sim}G
 $$
+
 주어진 \\( \alpha, G \\) 에 대해 \\( \Theta \\) 의 확률분포를 \\( DP(\alpha, G) \\) 로 표기한다.
 
 
