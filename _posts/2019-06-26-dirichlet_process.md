@@ -7,19 +7,19 @@ author: 임성빈
 
 Nonparametric Bayesian 에서 군집화 문제를 풀 때 사용되는 [Dirichlet Process](https://en.wikipedia.org/wiki/Dirichlet_process) 를 소개합니다.
 
-### 군집화(clustering)란?
+### 군집화 문제란?
 
-군집화란 말 그대로 **주어진 데이터를 몇 개의 부분집합으로 나누는 것** 입니다.
+군집화(clustering)란 말 그대로 **주어진 데이터를 몇 개의 부분집합으로 나누는 것** 입니다. 각 데이터 포인트 \\( x \\) 마다 쌍으로 정답 레이블(label) \\( y \\) 이 있는 분류(classification)문제와는 달리 군집화 문제는 레이블이 없습니다. 그래서 비지도학습(unsupervised learning)의 한 종류입니다. 아래 그림을 보시면 왼쪽이 주어진 데이터이고, 오른쪽이 군집화를 거친 결과입니다.
 
 ![figure1]({{ site.baseurl }}/images/posts/cluster-2019-06-26-figure1.png){:class="center-block" height="200px"}
 
 대체로 머신러닝 수업에서 배우는 군집화 알고리즘은 다음과 같습니다
 
 - K-means
-- GMM
+- GMM(Gaussian Mixture Model)
 - DBSCAN 
 
-오늘 소개할 Dirichlet process는 군집화 문제를 푸는 대표적인 nonparametric Bayesian 방법입니다.
+오늘 소개할 Dirichlet Process (DP) 는 군집화 문제를 푸는 대표적인 nonparametric Bayesian 방법입니다. 오늘은 DP 를 활용
 
 ### 군집화 문제의 Mixture 모델 표현
 
@@ -36,3 +36,24 @@ $$
 $$
 P(j) = \sum_{k}\pi_{k}P_{k}(j)
 $$
+
+### Dirichlet Process
+
+이제 DP 를 저
+
+**[Definition]** \\( \alpha > 0 \\) 이고 \\( G \\) 가 \\( \Omega_{\phi} \\) 위에 정의된 확률측도일 때, 이산확률측도 \\( \Theta \\) 를 다음과 같이 정의하자:
+$$
+\Theta := \sum_{k} C_{k}\delta_{\Phi_{k}}
+$$
+이 때 이 \\( \Theta \\) 를 **Dirichlet Process (DP)** 라 부르고 \\( G \\) 를 **base measure**, \\( \alpha \\) 를 **concentration** 이라 한다. 여기서 \\( \delta \\) 는 Dirac 측도이고 \\(C_{k}\\), \\(\Phi_{k}\\) 는 다음과 같다:
+$$
+\begin{aligned}
+V_{1}, V_{2},\ldots \underset{\text{i.i.d}}{\sim} \text{Beta}(1,\alpha),\quad C_{k}=V_{k}\prod_{j=1}^{k-1}(1-V_{k})
+\end{aligned},\quad \Phi_{1},\Phi_{2},\ldots,\underset{\text{i.i.d}}{\sim}G
+$$
+주어진 \\( \alpha, G \\) 에 대해 \\( \Theta \\) 의 확률분포를 \\( DP(\alpha, G) \\) 로 표기한다.
+
+
+### Clustering with DP
+
+### Algorithm
