@@ -16,10 +16,10 @@ Nonparametric Bayesian 에서 군집화 문제를 풀 때 사용되는 [Dirichle
 대체로 머신러닝 수업에서 배우는 군집화 알고리즘은 다음과 같습니다
 
 - K-means
-- GMM(Gaussian Mixture Model)
+- GMM (Gaussian Mixture Model)
 - DBSCAN 
 
-오늘 소개할 Dirichlet Process (DP) 는 군집화 문제를 푸는 대표적인 nonparametric Bayesian 방법입니다. 오늘은 DP 를 활용
+오늘 소개할 Dirichlet Process (DP)는 군집화 문제를 푸는 대표적인 nonparametric Bayesian 방법입니다. 사실 DP 는 활용하면 군집화 문제 뿐만 아니라 다른 곳에도 응용할 수 있습니다만, 이 포스트에서는 DP 를 활용하여 군집화 문제를 푸는 방법을 소개하겠습니다.
 
 ### 군집화 문제의 Mixture 모델 표현
 
@@ -37,10 +37,13 @@ $$
 P(j) = \sum_{k}\pi_{k}P_{k}(j)
 $$
 
-### Dirichlet Process
+### Dirichlet Process 에 대한 수학적 설명
 
-이제 Drichlet Process (DP) 를 정의하겠습니다. DP 의 정의를 이해하려면 [측도론(measure theory)](https://en.wikipedia.org/wiki/Measure_(mathematics))의 기본적인 용어들을 알아야 합니다.
+지금까지는 직관적인 설명을 위해 다소 수학적인 부분을 배제하려고 했는데요, 이런 설명으로는 만족하지 않을 분이 계실까 염려(?)되어 수학적인 정의 및 성질에 대해서도 같이 설명하겠습니다. 단, 본 항목을 이해하려면 [측도론(measure theory)](https://en.wikipedia.org/wiki/Measure_(mathematics))의 기본적인 용어들을 알아야 합니다. 측도론을 모르시는 분들은 과감하게 skip 하셔도 좋습니다.
 
+우선 Drichlet Process (DP) 를 수학적으로 정의하겠습니다.
+
+---
 #### Definition
 \\( \alpha > 0 \\) 이고 \\( G \\) 가 \\( \Omega_{\phi} \\) 위에 정의된 확률측도일 때, 이산확률측도 \\( \Theta \\) 를 다음과 같이 정의하자:
 
@@ -56,7 +59,10 @@ V_{1}, V_{2},\ldots \underset{\text{i.i.d}}{\sim} \text{Beta}(1,\alpha),\quad C_
 \end{aligned},\quad \Phi_{1},\Phi_{2},\ldots,\underset{\text{i.i.d}}{\sim}G
 $$
 
-주어진 \\( \alpha, G \\) 에 대해 \\( \Theta \\) 의 확률분포를 \\( DP(\alpha, G) \\) 로 표기한다.
+주어진 \\( \alpha, G \\) 에 대해 \\( \Theta \\) 의 확률분포를 \\( \text{DP}(\alpha, G) \\) 로 표기한다.
+
+---
+
 
 
 ### Clustering with DP
