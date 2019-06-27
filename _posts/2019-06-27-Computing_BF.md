@@ -1,4 +1,9 @@
-[Bayes Factor 쉽게 계산하기: BIC와 BayesFactor 패키지]
+---
+layout: post-sidenav
+title: "Bayes Factor 쉽게 계산하기: BIC와 BayesFactor 패키지"
+group: "Bayesian Statistics"
+author: 박준석
+---
 
 Bayes Factor (BF) 에 대해 지난 두 포스팅 (하단 링크 참조) 에서 설명했습니다. 아주 짧게 요약하자면, BF는 두 가설이 각각 가정하는 사전분포에 대한 likelihood의 기댓값들의 비율, 즉 marginal likelihood의 비율이라고 했습니다. 그런데 BF를 실제로 계산하는 것은 때로 꽤 어렵습니다. 특히 데이터가 클 때는 더욱 그렇습니다. MCMC 같은 방법은 데이터가 매우 클 때는 느리고 비효율적입니다. 그런데 이런 시뮬레이션 방법을 할 줄 모르면 아예 BF를 계산하는 걸 시도하는 것조차 어렵죠. 그래서 이 글에서는 좀 더 간단한 방법으로 BF를 계산 또는 근사하는 방법에 대해 설명하겠습니다. (이 방법들은 특별히 베이지안 통계에 트레이닝받지 않은 사람들도 할 수 있습니다.)
 
