@@ -74,4 +74,4 @@ https://link.springer.com/article/10.3758/BF03194105
 
  <a href="https://www.facebook.com/fisherinohio/posts/312990499642338?__xts__%5B0%5D=68.ARBzszLgycJ5_WalQU9zzDfhsEK2h_Db5eCYOtM6U33mlUDO0EYHIPMDF5dQTAGgL2kSOgkL7mbcr0URARymlJJo0E8LHV3m8usQ5V7eVo08j-h2H1R3AdiMXLMEUVrvDYZ8rWcjvFXGDYUFFALsvhLWmqDinmjb2lMgJIV-KWgEm-0Yy6iyeKafVCtGVk88moo1cpdeKNPLzLr5jtgW6GXuGhueD7RBlXPh7iENbR50s4MKXrWVJyGBnwWff1Chp0jeQD7PfhvsY2htl3ZQcpWEYnuhOoiNw8GwDnP9IhAA4ryHwU3_Sk_ExEaXcJ9DXQ7Kc__oDsGCmKugato&__tn__=K-R">Bayes Factor</a> 
  
-<a href="https://www.facebook.com/fisherinohio/posts/314469469494441?__tn__=K-R"BIC</a>
+<a href="https://www.facebook.com/fisherinohio/posts/314469469494441?__tn__=K-R">BIC</a>
