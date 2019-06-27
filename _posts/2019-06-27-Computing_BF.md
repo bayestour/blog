@@ -9,7 +9,7 @@ Bayes Factor (BF) 에 대해 지난 두 포스팅 (하단 링크 참조) 에서 
 
 첫 번째 방법은 BIC를 사용하는 것입니다. BIC는 marginal log-likelihood에 대한 근삿값 곱하기 -2로 정의되니까, 거꾸로 BIC를 -2로 나누면 marginal log-likelihood에 대한 추정값이 나옵니다. 이 값을 exp() 해 주면 marginal likelihood가 되겠지요? 이 값을 비교하려 하는 두 모형에 대해 계산한 후 나누거나, 아니면 애초에 그냥 marginal log-likelihood의 차를 계산한 후 exp()해 줘도 됩니다. 정리하자면 이렇습니다.
 
-\\( BF_{01} = exp(\frac{BIC_0}{(-2)} - \frac{BIC_1}{(-2)}) \\)
+\\( BF_{01} = \text{exp}(\frac{BIC_0}{(-2)} - \frac{BIC_1}{(-2)}) \\)
 
 물론 여기서 등호는 정확하지 않고 근삿값입니다. 예제로 R의 ToothGrowth 자료를 사용해 설명하겠습니다. 이 자료는 비타민 C를 쥐들에게 투약 방식(오렌지쥬스/약제), 투약량(0.5/1.0/2.0 mg)을 달리해 주면서 이빨의 성장량(len)을 측정한 자료인데, 여기서 투약 방식 (supp) 이 유의한 차이를 낳는지 확인해 보겠습니다. 물론 여기서 dose는 통제 목적으로 함께 투입되는 공변량 covariate 입니다. 비교할 두 회귀모형은 따라서 다음과 같습니다:
 
