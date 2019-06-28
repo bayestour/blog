@@ -80,7 +80,7 @@ title: Bayesian tour
     <div class="well-sm">
       <h3><a href="{{ site.baseurl }}"> 2. Miscellaneous Posts on Statistics & Learning </a></h3>
       <ul>
-        {% for post in paginator.posts %}
+        {% for post in site.posts %}
         <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
         {% endfor %}
       </ul>
