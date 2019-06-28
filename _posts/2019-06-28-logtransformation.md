@@ -66,6 +66,7 @@ mean(predictions2-data$y)
 참고문헌
 
 Pek et al. (2017). Confidence intervals for the mean of non-normal distribution: Transform of not transform. Open Journal of Statistics, 7, 405-421. doi: 10.4236/ojs.2017.73029.
+
 https://www.scirp.org/journal/PaperInformation.aspx?PaperID=76758
 
 
