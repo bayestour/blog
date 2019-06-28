@@ -1,5 +1,5 @@
 ---
-layout: post-sidenav
+layout: page-sidenav
 title: "Dirichlet Process"
 group: "Bayesian Statistics"
 author: 임성빈
