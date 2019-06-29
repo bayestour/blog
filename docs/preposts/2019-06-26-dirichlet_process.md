@@ -1,6 +1,6 @@
 ---
 layout: post-sidenav
-title: "Dirichlet Process(작성중)"
+title: "Dirichlet Process"
 group: "Bayesian Statistics"
 author: 임성빈
 ---
@@ -13,13 +13,11 @@ Nonparametric Bayesian 에서 군집화 문제를 풀 때 사용되는 [Dirichle
 
 ![figure1]({{ site.baseurl }}/images/posts/cluster-2019-06-26-figure1.png){:class="center-block" height="200px"}
 
-대체로 머신러닝 수업에서 배우는 군집화 알고리즘은 다음과 같습니다
+대체로 머신러닝 수업에서 배우는 군집화 알고리즘은 [K-means](https://en.wikipedia.org/wiki/K-means_clustering), [GMM (Gaussian Mixture Model)](https://en.wikipedia.org/wiki/Mixture_model#Gaussian_mixture_model), [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN) 등이 있습니다. 각자가 유용하게 쓰이는 알고리즘이지만 이번 포스트에서는 조금 다른 접근법을 소개하겠습니다.
 
-- K-means
-- GMM (Gaussian Mixture Model)
-- DBSCAN 
+---
 
-오늘 소개할 Dirichlet Process (DP)는 군집화 문제를 푸는 대표적인 nonparametric Bayesian 방법입니다. 사실 DP 는 활용하면 군집화 문제 뿐만 아니라 다른 곳에도 응용할 수 있습니다만, 이 포스트에서는 DP 를 활용하여 군집화 문제를 푸는 방법을 소개하겠습니다.
+Dirichlet Process (DP)는 대표적인 [비모수적(nonparametric) Bayesian 방법]()입니다. 사실 DP 는 활용하면 군집화 문제 뿐만 아니라 다른 곳에도 응용할 수 있습니다만, 이 포스트에서는 DP 를 활용하여 군집화 문제를 푸는 방법을 소개하겠습니다.
 
 ### 군집화 문제의 Mixture 모델 표현
 
@@ -40,21 +38,23 @@ $$
 식 (1) 을 **mixture 모델** (또는 mixture 분포) 라 부릅니다.  여기서 \\( \pi_{k} \\) 는 데이터의 전체 분포에서 어떤 집합이 차지할 확률에 해당하는데요, 이를 mixture weight 라고 합니다. 군집화 문제에선 당연히 \\( P_{k}(j)\\) 을 정확하게 계산하는 것이 중요합니다. 궁극적으로 군집화 문제에서 \\( \pi_{k} \\) 가
 
 
-### Dirichlet Process 에 대한 수학적 설명
+### Dirichlet Process 에 대한 수학적 접근
 
 지금까지는 직관적인 설명을 위해 다소 수학적인 부분을 배제하려고 했는데요, 이런 설명으로는 만족하지 않을 분이 계실까 염려(?)되어 수학적인 정의 및 성질에 대해서도 같이 설명하겠습니다. 단, 본 항목을 이해하려면 [측도론(measure theory)](https://en.wikipedia.org/wiki/Measure_(mathematics))의 기본적인 용어들을 알아야 합니다. 측도론을 모르시는 분들은 과감하게 skip 하셔도 좋습니다.
 
 우선 Drichlet Process (DP) 를 수학적으로 정의하겠습니다.
 
+
 ---
-#### Definition
+
+#### Definition (Dirichlet Process)
 \\( \alpha > 0 \\) 이고 \\( G \\) 가 \\( \Omega_{\phi} \\) 위에 정의된 확률측도일 때, 이산확률측도 \\( \Theta \\) 를 다음과 같이 정의하자:
 
 $$
 \Theta := \sum_{k} C_{k}\delta_{\Phi_{k}}
 $$
 
-이 때 이 \\( \Theta \\) 를 **Dirichlet Process (DP)** 라 부르고 \\( G \\) 를 **base measure**, \\( \alpha \\) 를 **concentration** 이라 한다. 여기서 \\( \delta \\) 는 Dirac 측도이고 \\(C_{k}\\), \\(\Phi_{k}\\) 는 다음과 같다:
+이 때 이 \\( \Theta \\) 를 **Dirichlet Process (DP)** 라 부르고 \\( G \\) 를 **base measure**, \\( \alpha \\) 를 **concentration** 이라 한다. 여기서 \\( \delta \\) 는 디렉 측도(Dirac measure) 이고 \\(C_{k}\\), \\(\Phi_{k}\\) 는 다음과 같이 정의된다:
 
 $$
 \begin{aligned}
@@ -68,6 +68,18 @@ $$
 
 
 
+
 ### Clustering with DP
 
 ### Algorithm
+
+
+
+### 주석
+[1]
+[2]
+
+### 참고문헌
+
+- *Lecture Notes on Bayesian Nonparametrics*, P. Orbanz, 2014
+- *Bayesian Nonparametrics*, J.K. Ghosh, R.V. Ramamoorthi, 2003
