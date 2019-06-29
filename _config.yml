@@ -11,7 +11,7 @@ baseurl: "/blog"
 exclude:
   - README.md
   - _site
-  
+
 highlighter: rouge
 markdown: kramdown
 plugins:
@@ -25,3 +25,9 @@ kramdown:
 paginate: 4
 paginate_path: /page:num
 
+
+analytics:
+  provider: "google"
+  google:
+    tracking_id: "UA-142844151-1"
+    anonymize_ip: false # default
