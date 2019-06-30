@@ -146,8 +146,8 @@ article li, .li {
   font-size: 90%;
 }
 
-
-.image-caption {
+img + em {
+  display: block;
   text-align: center;
   font-size: .8rem;
   color: light-grey;
