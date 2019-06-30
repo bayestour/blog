@@ -4,7 +4,10 @@ topnav:
       - title: Causal Inference & Learning
         group: "Causal Inference & Learning"
         url: /docs/bc/0
-
+    items:
+      - title: Bayesian Statistics
+        group: "Bayesian Statistics"
+        url: /2019/06/28/logtransformation.html        
   # - title: 1. Applied Bayesian Statistics
   #   items:
   #     - title: 1.
