@@ -105,7 +105,7 @@ h2, h3 { padding-top : 10px; padding-bottom: 10px; border-bottom: 1px solid #ddd
 }
 
 ul#markdown-toc, li#markdown-toc {
-  background-color: whitesmoke;  
+  background-color: whitesmoke;
   border-radius: 5px;
   max-width: 300px;
   color: gray;
@@ -141,7 +141,13 @@ article li, .li {
 .nav-pills > li.sub {
   margin-top: 0px;
   margin-bottom: 0px;
-  line-height: 4px;  
+  line-height: 4px;
   -webkit-padding-start: 15px;
   font-size: 90%;
 }
+
+
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
