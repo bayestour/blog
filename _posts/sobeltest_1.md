@@ -1,0 +1,38 @@
+[서론: 소벨 테스트 완전히 이해하기 (1)]
+
+Michael Sobel에 의해 1982년 제안된 소벨 테스트 [1] 는 Preacher와 Hayes가 2004년과 2008년에 제안한 bootstrap 방식의 매개분석 [2,3] 이 인기를 얻기 전까지 매우 널리 활용되던 매개효과 검정 절차입니다. 사실상 "그" 방법론이라 부르면 될 정도의 느낌이었죠. 물론 지금도 활용이 안 되는 것은 아닙니다. [1]의 구글 스칼라 기준으로 인용 횟수는 2019년 7월 1일 기준 무려 13,924회나 됩니다. 참고로 연구방법론 페이퍼는 인기를 얻으면 다양한 분야에서 활용되기 때문에 엄청나게 인용됩니다. [2]와 [3]은 비슷하게 또는 더 많이 인용됐죠. 
+
+소벨 테스트에 대해 더 자세히 이야기하기 전에 매개분석에 대해 간략하게나마 백그라운드를 좀 깔고 가는 게 좋겠다는 생각을 했습니다. 여기서는 가장 단순한 사례인 단순매개분석 simple mediation 에 대해 다루겠습니다. 매개변수가 더 많은 경우는 다중매개 multiple mediation 라 부르는데, 기본적인 논리나 모형 자체는 거의 같다고 보시면 됩니다. 
+
+https://en.wikipedia.org/wiki/Mediation
+
+단순매개분석은 독립변수 X와 종속변수 Y가 있을 때, X가 Y에 미치는 인과적 영향이 제 3의 매개변수 mediator 를 통해 중개되는지 알아보기 위한 기법입니다. 보통 매개변수는 mediator의 머릿글자를 따서 M이라고 부르죠. 이것이 X와 Y 사이의 인과관계를 중개하는지 보려는 것이 매개분석의 주된 목적입니다. 여기서 중개된 효과를 간접효과 indirect effect 라 부릅니다. 간접효과가 유의하게 0과 다르냐 하는 게 일반적으로 연구자들이 관심을 갖는 사항입니다.
+
+매개분석에서 가정하는 인과 모형은 첨부된 그림과 같습니다. 구조 자체는 보시다시피 굉장히 간단합니다. 통계모형으로 들어가서, X, Y, M은 mean-centering 되었다고 가정하겠습니다. 이렇게 하면 회귀모형에서 절편이 사라집니다. 단순매개의 통계모형은 다음과 같습니다. (대문자는 소문자로 교체하였습니다. 보통 문헌에서는 소문자로 표기합니다.)
+
+$$\mathbb{E}(M) = a*X \cdots (1)$$
+$$\mathbb{E}(Y) = b*M + c*X \cdots (2)$$
+
+여기서 (1)을 (2)에 대입하면 다음을 얻습니다:
+
+E(Y) = b*(a*X) + c*X = a*b*X + c*X
+
+여기서 a*b가 “매개된” 효과, 즉 간접효과에 해당합니다. 우리는 지금부터 a*b가 0과 “유의하게” 다른지 확인하려고 합니다. 이를 위해 일반적으로 사용하는 방법은 a*b에 대한 95% 신뢰구간을 만들어서, 그것이 0을 포함하는지 보는 것입니다. (잘 알려져 있듯 신뢰구간을 이용한 방식은 P-value를 이용한 검정 방식과 동일한 결과를 산출합니다.) 이를 위해 보통 (1)과 (2)를 데이터에 따로 핏팅하고, a와 b에 대한 OLS 추정치를 얻습니다. 그리고 그 둘을 곱하면 a*b에 대한 점추정치를 얻습니다.
+
+문제는 a*b의 신뢰구간을 만드려면 점추정치 뿐 아니라 그 "분포"에 대해 알아야 하는데, 우리는 사실 모른다는 것입니다. 각각의 점추정치는 t분포 (큰 샘플에서는 근사적으로 정규분포)를 따르긴 하지만, 우리가 t분포를 따르는 두 확률변수의 곱이 무슨 분포를 따르는지 아나요? 아닙니다. (뭐 억지로 어떻게 어떻게 하면 될지도 모르지만요.) 그래서 대신 근사적 분포를 쓰는데, 큰 샘플에서는 (1)과 (2)를 핏팅하여 얻은 a*b에 대한 추정치가 큰 샘플에서는 정규분포를 따른다는 것이 알려져 있습니다. 이 사실을 이용하면 a*b에 대한 신뢰구간을 만들 수 있습니다. 
+
+문제는 Var(a_hat*b_hat) 를 구체적으로 어떻게 계산하느냐 하는 것입니다. 정규분포를 따르는 독립적인 두 추정치 a_hat, b_hat이 있고, 각각의 standard error가 알려져 있을 때, 그 둘의 곱의 분산은 어떻게 추정할까요? 바로 여기가 delta method라는 기법이 들어오는 대목입니다. Delta method를 이용하면 모수치의 transformation에 대한 근사적 정규분포를 얻을 수 있는데, 여기서 말하는 transformation이란 바로 f((a,b))=a*b 를 의미합니다. 이를 이용하여 a_hat*b_hat의 분산에 대해 추정할 수 있고, 그 결과를 간접효과에 대한 신뢰구간을 만드는 데 씁니다. (대부분의 product of coefficients 기반 매개분석 기법들은 Var(a_hat*b_hat)를 계산하는 데 관심이 있는데, 그 방법이 다를 뿐입니다. 소벨 테스트는 delta method를 쓰는 겁니다.)
+
+자, 여기가 바로 대부분의 사회과학 연구자들이 멈추는 지점입니다. 델타 메쏘드는 수리통계 교과서에는 빠지지 않고 등장하지만, 사회과학 연구방법론 교과서에는 거의 등장하지 않습니다. "다변수 테일러 전개"라 불리는 수학적 기법이 등장하기 때문인데, 이걸 이해하려면 미적분을 공부해야겠죠. 그런데 사회과학도들은 (매우 불행하게도) 미적분을 모르는 사람이 다수이고, 테일러전개가 등장하는 순간 아마 책을 덮을 것입니다. 그래서 저는 Sobel test를 본격적으로 설명하기 전에 델타 메쏘드부터 최소한의 수학을 동원하여 설명하고 넘어가도록 하겠습니다. 본격적인 설명은 다음 글로 넘깁니다.
+
+[1] Sobel, M. E. (1982). Asymptotic confidence intervals for indirect effects in structural equation models. Sociological methodology, 13, 290-312. 
+
+[2] Preacher, K. J., & Hayes, A. F. (2004). SPSS and SAS procedures for estimating indirect effects in simple mediation models. Behavior research methods, instruments, & computers, 36(4), 717-731.
+
+https://link.springer.com/article/10.3758/BF03206553
+
+https://www.jstor.org/stable/270723?seq=1#metadata_info_tab_contents
+
+[3] Preacher, K. J., & Hayes, A. F. (2008). Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behavior research methods, 40(3), 879-891.
+
+https://link.springer.com/article/10.3758/BRM.40.3.879
