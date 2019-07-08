@@ -33,6 +33,7 @@ c(mean(data)-1.96*sd(data)/sqrt(10), mean(data)+1.96*sd(data)/sqrt(10))
 이제 부트스트랩 방식을 사용해 보겠습니다. 원 데이터와 같은 \\(n=10\\)인 크기의 샘플을 원 데이터로부터 추출하는 과정을 10,000회 반복한 뒤, 그로부터 얻어진 10,000개의 표본평균들의 경험적 분포에서 상위/하위 2.5% 에 해당하는 값들을 끊어서 신뢰구간을 만들어 보겠습니다. 결과는 다음과 같습니다.
 
 ```r
+# R code
 n_boot <- 10000
 sample_means <- vector(length=n_boot)
 
@@ -43,6 +44,22 @@ for(i in 1:n_boot){
 as.vector(quantile(sample_means, c(.025, .975)))
 
 [1] 3.8 7.3
+```
+
+```python
+# Python code
+import numpy as np
+import math
+
+data = np.array(range(1, 11, 1))
+n_boot = 10000
+means = np.zeros(n_boot)
+
+for i in range(n_boot):
+    means[i] = np.mean(np.random.choice(data, size=data.size, replace=True))
+
+[sorted(means)[math.floor(n_boot*.025)], sorted(means)[math.ceil(n_boot*.975)]]
+[3.7, 7.3]
 ```
 
 우리가 앞에서 얻었던 값인 3.62, 7.37과 약간의 차이는 있지만 상당히 근접한 값을 얻었습니다. 시행 횟수를 늘리면 차이가 조금 줄기는 합니다. 하지만 시뮬레이션 방식이기 때문에 완전히 사라지지는 않습니다.
