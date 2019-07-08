@@ -23,8 +23,14 @@ author: 박준석
 abs <- vector(length=R)
 
 for(i in 1:R){
+
+  # 부트스트랩 샘플의 인덱스를 복원추출
   ind <- sample(1:nrow(iris), nrow(iris), replace=T)
+  
+  # 부트스트랩 샘플 작성
   d <- iris[ind,]
+  
+  # 추출된 샘플에서 회귀계수 두 개 계산한 뒤 곱하고 저장
   abs[i] <- as.numeric(coef(lm(d[,2] ~ d[,1]))[2]*coef(lm(d[,3] ~ d[,1]+d[,2]))[3])
 
 }
