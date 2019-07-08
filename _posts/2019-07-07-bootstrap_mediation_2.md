@@ -112,7 +112,7 @@ mediate_ci <- as.vector(res_mediate$d0.ci)
 mediate_ci
 ```
 ```r
-
+[1] -0.02053208  0.19417125
 ```
 
 모두 유사한 결과를 산출합니다.
