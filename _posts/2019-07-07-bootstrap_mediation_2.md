@@ -20,6 +20,9 @@ author: 박준석
 ```r
 # R
 
+#부트스트랩 횟수
+R <- 10000
+
 abs <- vector(length=R)
 
 for(i in 1:R){
