@@ -26,7 +26,8 @@ mean(data)
 [1] 5.5
 
 c(mean(data)-1.96*sd(data)/sqrt(10), mean(data)+1.96*sd(data)/sqrt(10))
-
+```
+```r
 [1] 3.623443 7.376557
 ```
 
