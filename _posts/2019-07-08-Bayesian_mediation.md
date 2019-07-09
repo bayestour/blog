@@ -197,3 +197,8 @@ array([-0.0320145 ,  0.20735748])
 [1] <a href = "https://psycnet.apa.org/record/2009-22665-001">Yuan, Y., & MacKinnon, D. P. (2009). Bayesian mediation analysis. Psychological methods, 14(4), 301-322.</a>
 
 [2] Stan은 감마분포를 shape와 rate로 parametrize 합니다.
+
+코드들
+
+<a href = "https://github.com/JoonsukPark/examples/blob/master/Bayesian_mediation.R">R</a>
+<a href = "https://github.com/JoonsukPark/examples/blob/master/Bayesian_mediation.py">Python</a>
