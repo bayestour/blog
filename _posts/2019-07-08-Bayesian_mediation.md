@@ -1,6 +1,6 @@
 ---
 layout: post-sidenav
-title: "Bayesian mediation을 R과 Python에서 Stan을 활용하여 구현하기"
+title: "Bayesian mediation을 R과 Python에서 구현하기"
 group: "Bayesian Statistics"
 author: 박준석
 ---
