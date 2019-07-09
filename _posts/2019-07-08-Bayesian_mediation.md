@@ -201,4 +201,5 @@ array([-0.0320145 ,  0.20735748])
 코드들
 
 <a href = "https://github.com/JoonsukPark/examples/blob/master/Bayesian_mediation.R">R</a>
+
 <a href = "https://github.com/JoonsukPark/examples/blob/master/Bayesian_mediation.py">Python</a>
