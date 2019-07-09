@@ -194,7 +194,7 @@ array([-0.0320145 ,  0.20735748])
 
 지금까지 Stan을 이용하여 R과 Python에서 베이지안 방식으로 단순매개모형을 핏팅하고 간접효과를 검증하는 법을 알아보았습니다. 사실 베이지안 통계에서 \\(ab\\)에 대한 구간추정을 하는 것은 어차피 얻어야 하는 \\(a\\)와 \\(b\\)의 샘플을 한 번 더 활용하는 것에 지나지 않기 때문에, 매우 간편합니다. 이런 식으로 원하는 다른 값들도 얼마든지 추정이 가능합니다.
 
-[1] <a href = "https://psycnet.apa.org/record/2009-22665-001">Yuan, Y., & MacKinnon, D. P. (2009). Bayesian mediation analysis. Psychological methods, 14(4), 301-322.</a>
+[1] <a href = "https://psycnet.apa.org/record/2009-22665-001">Yuan, Y., & MacKinnon, D. P. (2009). Bayesian mediation analysis. Psychological Methods, 14(4), 301-322.</a>
 
 [2] Stan은 감마분포를 shape와 rate로 parametrize 합니다.
 
