@@ -1,6 +1,6 @@
 ---
 layout: post-sidenav
-title: "Bayesian mediation을 R과 Python에서 구현하기"
+title: "단순매개분석을 Bayesian 방식으로 R과 Python에서 구현하기"
 group: "Bayesian Statistics"
 author: 박준석
 ---
