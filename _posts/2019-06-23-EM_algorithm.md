@@ -1,6 +1,6 @@
 ---
 layout: post-sidenav
-title: "EM 알고리즘 이해 및 구현하기"
+title: "DIC와 WAIC: 베이지안 모형선택을 위한 정보 기준들"
 group: "Bayesian Statistics"
 author: 박준석
 ---
