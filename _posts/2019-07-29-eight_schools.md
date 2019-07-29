@@ -93,6 +93,6 @@ sd         7.92  6.17  7.45  6.37  6.28  6.61  6.64  7.48
 
 [4] <a href="https://rdrr.io/cran/bayesmeta/man/Rubin1981.html">예제</a>
 
-[5] 빈도주의 메타분석 모형은 이런 이유로 tau를 0으로 간주한 분석 결과를 제시합니다. 이것이 불만족스러워서 여기서 사용하지 않았습니다.
+[5] 빈도주의 메타분석 모형은 이런 이유로 \\(\tau\\)를 0으로 간주한 분석 결과를 제시합니다. 이것이 불만족스러워서 여기서 사용하지 않았습니다.
 
 [6] <a href="https://statmodeling.stat.columbia.edu/2014/01/21/everything-need-know-bayesian-statistics-learned-eight-schools/?fbclid=IwAR3Nnq8kPI5UoSMhTVQtkgQaerVVo5ypOvhrjT-w_KWn5qnXfNi1wL0qBc4">더 읽을거리</a>
