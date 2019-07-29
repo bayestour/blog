@@ -1,6 +1,6 @@
 ---
 layout: post-sidenav
-title: "사전분포의 선택이 베이지안 분석결과에 미치는 영향: sensitivity analysis"
+title: "베이지안 메타분석 (2) - 사전분포의 선택이 베이지안 분석결과에 미치는 영향: sensitivity analysis"
 group: "Bayesian Statistics"
 author: 박준석
 ---
