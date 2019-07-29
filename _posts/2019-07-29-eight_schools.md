@@ -69,7 +69,7 @@ sd         4.886720  5.033346   9.164662
 ```{r}
 > schools$theta
 
-A     B     C     D     E     F     G     H
+          A     B     C     D     E     F     G     H
 y         28.39  7.94 -2.75  6.82 -0.64  0.63 18.01 12.16
 sigma     14.90 10.20 16.30 11.00  9.40 11.40 10.40 17.60
 mode       8.91  7.94  7.48  7.83  6.82  7.28  8.99  8.08
@@ -96,5 +96,3 @@ sd         7.92  6.17  7.45  6.37  6.28  6.61  6.64  7.48
 [5] 빈도주의 메타분석 모형은 이런 이유로 tau를 0으로 간주한 분석 결과를 제시합니다. 이것이 불만족스러워서 여기서 사용하지 않았습니다.
 
 [6] <a href="https://statmodeling.stat.columbia.edu/2014/01/21/everything-need-know-bayesian-statistics-learned-eight-schools/?fbclid=IwAR3Nnq8kPI5UoSMhTVQtkgQaerVVo5ypOvhrjT-w_KWn5qnXfNi1wL0qBc4">더 읽을거리</a>
-
-[6] 
