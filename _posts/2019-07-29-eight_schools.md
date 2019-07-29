@@ -1,6 +1,6 @@
 ---
 layout: post-sidenav
-title: "가장 간단한 random effect model: eight schools example"
+title: "베이지안 메타분석 (1) - 가장 간단한 random effect model: eight schools example"
 group: "Bayesian Statistics"
 author: 박준석
 ---
