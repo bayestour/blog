@@ -62,6 +62,8 @@ for(i in 1:n_sample) post[i] <- sampler(n, y)
 
 import numpy as np
 from numpy.random import binomial, uniform
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 n = 10
 y = 6
@@ -77,13 +79,24 @@ def sampler(n,y):
         
     return p
 
-n_sample = 100000
-post = [sampler(n,y) for i in range(n_sample)]
+n_sample = 1000
+post = []
+
+for i in range(n_sample):
+    post.extend(sampler(n,y))
     
 print(np.mean(post))
 print(np.std(post))
+
+plt.hist(post, 20,
+         density=True,
+         histtype='bar',
+         alpha=0.5)
+
+plt.show()
 ```
-각각의 코드에서 sampler라는 이름의 함수를 읽어보시면 제가 앞에서 말한 것을 그대로 구현했음을 알 수 있습니다. 이를 이용하여 100,000개의 샘플을 추출하여 post라는 변수에 저장했습니다. 아래 그림은 post의 히스토그램과 true posterior인 \\(\mbox{Beta}(7,5)\\)를 함께 그린 것인데, 거의 일치한다는 것을 알 수 있습니다. 
+
+각각의 코드에서 sampler라는 이름의 함수를 읽어보시면 제가 앞에서 말한 것을 그대로 구현했음을 알 수 있습니다. 이를 이용하여 100,000개의 샘플을 추출하여 post라는 변수에 저장했습니다. 아래 그림은 R에서 얻은 post의 히스토그램과 true posterior인 \\(\mbox{Beta}(7,5)\\)를 함께 그린 것인데, 거의 일치한다는 것을 알 수 있습니다. 
 
 <img src="https://raw.githubusercontent.com/bayestour/blog/master/images/posts/bin.png">
 
