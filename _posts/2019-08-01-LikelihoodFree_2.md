@@ -103,4 +103,4 @@ print(np.std(post))
 
 이 글에서는 이산형 분포를 다루었는데, 다음 글에서는 연속형 분포인 정규분포를 가지고 ABC rejection sampling을 해 보도록 하겠습니다. 이 경우에는 생성된 자료가 원 자료와 완전히 똑같을 확률이 0이기 때문에 accept/reject를 판단할 때 좀 다른 전략이 필요합니다. 자세한 것은 다음 글에서 이야기하겠습니다.
 
-[1] 이를 Beta-Binomial model이라고 부릅니다. 여기서 Beta 사전분포는 Binomial model에 대한 켤레사전분포 <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a>인데, 사전분포가 켤레사전분포인 경우에는 따로 샘플링 없이 바로 사후분포를 닫힌 형태로 얻을 수 있기 때문에 매우 간편합니다. 켤레사전분포는 MCMC가 등장하기 이전에 특히 베이지안 추론에서 널리 사용되었습니다.
+[1] 이를 <a href="https://en.wikipedia.org/wiki/Beta-binomial_distribution">Beta-Binomial model</a>이라고 부릅니다. 여기서 Beta 사전분포는 Binomial model에 대한 켤레사전분포 <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a>인데, 사전분포가 켤레사전분포인 경우에는 따로 샘플링 없이 바로 사후분포를 닫힌 형태로 얻을 수 있기 때문에 매우 간편합니다. 켤레사전분포는 MCMC가 등장하기 이전에 특히 베이지안 추론에서 널리 사용되었습니다.
