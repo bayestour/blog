@@ -13,7 +13,7 @@ $$Y \sim \mbox{Binomial}(10, p) ... (1)$$
 
 $$p|y \sim \mbox{Beta}(1+6,1+4)... (2)$$
 
-이 이론적 사후분포의 기댓값은 \\(7/(7+5)=0.583\\), 분산은 \\(\sqrt{(7*5)/(7+5)^2*(7+5+1)}=0.1367\\) 입니다. 자세한 공식은 <a href=”https://en.wikipedia.org/wiki/Beta_distribution”>위키 항목</a>을 참조하시기 바랍니다. 
+이 이론적 사후분포의 기댓값은 \\(7/(7+5)=0.583\\), 분산은 \\(\sqrt{\frac{7(5)}{(7+5)^2(7+5+1)}=0.1367\\) 입니다. 자세한 공식은 <a href=”https://en.wikipedia.org/wiki/Beta_distribution”>위키 항목</a>을 참조하시기 바랍니다. 
 
 이제 ABC rejection sampling으로 이 결과를 재현할 수 있는지 보겠습니다. 앞 글에서 말했던 것처럼 이 알고리즘은 다음의 세 스텝으로 이루어져 있습니다:
 
