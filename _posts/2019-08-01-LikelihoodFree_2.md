@@ -13,7 +13,7 @@ $$Y \sim \mbox{Binomial}(10, p) ... (1)$$
 
 $$p|y \sim \mbox{Beta}(1+6,1+4)... (2)$$
 
-이 이론적 사후분포의 기댓값은 \\(7/(7+5)=0.583\\), 분산은 \\(\sqrt{\frac{7(5)}{(7+5)^2(7+5+1)}=0.1367\\) 입니다. 자세한 공식은 <a href=”https://en.wikipedia.org/wiki/Beta_distribution”>위키 항목</a>을 참조하시기 바랍니다. 
+이 이론적 사후분포의 기댓값은 \\(7/(7+5)=0.583\\), 분산은 \\(\sqrt{\frac{7(5)}{(7+5)^2(7+5+1)}}=0.1367\\) 입니다. 자세한 공식은 <a href="https://en.wikipedia.org/wiki/Beta_distribution">위키 항목</a>을 참조하시기 바랍니다. 
 
 이제 ABC rejection sampling으로 이 결과를 재현할 수 있는지 보겠습니다. 앞 글에서 말했던 것처럼 이 알고리즘은 다음의 세 스텝으로 이루어져 있습니다:
 
@@ -84,7 +84,7 @@ print(np.mean(post))
 print(np.std(post))
 ```
 각각의 코드에서 sampler라는 이름의 함수를 읽어보시면 제가 앞에서 말한 것을 그대로 구현했음을 알 수 있습니다. 이를 이용하여 100,000개의 샘플을 추출하여 post라는 변수에 저장했습니다. 아래 그림은 post의 히스토그램과 true posterior인 \\(\mbox{Beta}(7,5)\\)를 함께 그린 것인데, 거의 일치한다는 것을 알 수 있습니다. 
-<img src=”https://raw.githubusercontent.com/bayestour/blog/master/images/posts/bin.png”>
+<img src="https://raw.githubusercontent.com/bayestour/blog/master/images/posts/bin.png">
 샘플의 평균과 분산도 계산해 보면 다음과 같습니다:
 ```{r}
 > mean(post)
