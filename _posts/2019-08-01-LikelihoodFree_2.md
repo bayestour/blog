@@ -84,7 +84,9 @@ print(np.mean(post))
 print(np.std(post))
 ```
 각각의 코드에서 sampler라는 이름의 함수를 읽어보시면 제가 앞에서 말한 것을 그대로 구현했음을 알 수 있습니다. 이를 이용하여 100,000개의 샘플을 추출하여 post라는 변수에 저장했습니다. 아래 그림은 post의 히스토그램과 true posterior인 \\(\mbox{Beta}(7,5)\\)를 함께 그린 것인데, 거의 일치한다는 것을 알 수 있습니다. 
+
 <img src="https://raw.githubusercontent.com/bayestour/blog/master/images/posts/bin.png">
+
 샘플의 평균과 분산도 계산해 보면 다음과 같습니다:
 ```{r}
 > mean(post)
@@ -101,4 +103,4 @@ print(np.std(post))
 
 이 글에서는 이산형 분포를 다루었는데, 다음 글에서는 연속형 분포인 정규분포를 가지고 ABC rejection sampling을 해 보도록 하겠습니다. 이 경우에는 생성된 자료가 원 자료와 완전히 똑같을 확률이 0이기 때문에 accept/reject를 판단할 때 좀 다른 전략이 필요합니다. 자세한 것은 다음 글에서 이야기하겠습니다.
 
-[1] 이를 Beta-Binomial model이라고 부릅니다. 여기서 Beta 사전분포는 Binomial model에 대한 켤레사전분포 conjugate prior인데, 사전분포가 켤레사전분포인 경우에는 따로 샘플링 없이 바로 사후분포를 닫힌 형태로 얻을 수 있기 때문에 매우 간편합니다. 켤레사전분포는 MCMC가 등장하기 이전에 특히 베이지안 추론에서 널리 사용되었습니다.
+[1] 이를 Beta-Binomial model이라고 부릅니다. 여기서 Beta 사전분포는 Binomial model에 대한 켤레사전분포 <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a>인데, 사전분포가 켤레사전분포인 경우에는 따로 샘플링 없이 바로 사후분포를 닫힌 형태로 얻을 수 있기 때문에 매우 간편합니다. 켤레사전분포는 MCMC가 등장하기 이전에 특히 베이지안 추론에서 널리 사용되었습니다.
