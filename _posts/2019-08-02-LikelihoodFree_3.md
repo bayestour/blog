@@ -23,7 +23,7 @@ author: 박준석
 
 이제 여기서 말한 '거리'를 정의해야 하는데, 앞선 글에서 말했던 대로 되도록 충분통계량을 활용하는 게 좋습니다. 모평균에 대한 충분통계량은 물론 표본평균이기 때문에, 이것을 이용하여 거리를 정의하겠습니다. 이를테면 원 자료의 표본평균과 생성된 자료의 표본평균의 차이 절댓값을 거리로 정의하면 됩니다. (물론 그 제곱을 활용한다든지 할 수도 있습니다.)
 
-이제 이것을 구현해 보겠습니다. 자료의 크기는 \\(N=100\\)이고, \\(N(100, 15^2)\\)에서 온다고 가정하겠습니다. 사전분포는 \\(N(90, 30^2)\\)을 사용하겠습니다:
+이제 이것을 구현해 보겠습니다. 자료의 크기는 \\(=100\\)이고, \\(N(100, 15^2)\\)에서 온다고 가정하겠습니다. 사전분포는 \\(N(90, 30^2)\\)을 사용하겠습니다:
 
 ```{r}
 # R
@@ -190,4 +190,5 @@ print(std(post))
 [1] <a href="http://www2.bcs.rochester.edu/sites/jacobslab/cheat_sheet/bayes_Normal_Normal.pdf">Normal-normal model의 사후분포</a>
 
 <a href="https://github.com/JoonsukPark/examples/blob/master/ABC_normal.py">파이썬 전체 코드</a>
+
 <a href="https://github.com/JoonsukPark/examples/blob/master/ABC_normal_mean.R">R 전체 코드</a>
