@@ -37,7 +37,6 @@ mu_true <- 100
 sd_true <- 15
 prior_mean <- 90
 prior_sd <- 30
-
 ```
 ```{python}
 # Python
@@ -182,8 +181,13 @@ sd(post)
 print(mean(post))
 print(std(post))
 ```
-앞에서 구한 값들과 큰 차이가 없음을 확인할 수 있습니다. Posterior sample에 이론적 사후분포를 함께 그린 것은 첨부된 그림에서 확인할 수 있습니다.
+앞에서 구한 값들과 큰 차이가 없음을 확인할 수 있습니다. Posterior sample에 이론적 사후분포를 함께 그린 것은 아래 그림에서 확인할 수 있습니다.
+
+<img src="https://raw.githubusercontent.com/bayestour/blog/master/images/posts/ABC_normal.png">
 
 지금까지 연속확률분포에서 ABC를 구현하는 예시를 보았습니다. 생각보다 간단하(?)죠? 사실 실제 적용에서는 rejection sampling은 잘 사용하지 않는데, 그보다는 효율성이 더 나은 ABC MCMC라는 것을 많이 사용합니다. 이에 대한 구체적인 설명은 생략합니다. 자세한 것은 첫 글에 언급된 Turner & Van Zandt (2012) 을 참조하시기 바랍니다.
 
 [1] <a href="http://www2.bcs.rochester.edu/sites/jacobslab/cheat_sheet/bayes_Normal_Normal.pdf">Normal-normal model의 사후분포</a>
+
+<a href="https://github.com/JoonsukPark/examples/blob/master/ABC_normal.py">파이썬 전체 코드</a>
+<a href="https://github.com/JoonsukPark/examples/blob/master/ABC_normal_mean.R">R 전체 코드</a>
